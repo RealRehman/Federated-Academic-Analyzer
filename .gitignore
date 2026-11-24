@@ -1,0 +1,25 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Generated model files
+models/
+*.joblib
+*.pkl
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
