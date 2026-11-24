@@ -1,38 +1,29 @@
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Dashboard from './pages/Dashboard';
+import Datasets from './pages/Datasets';
+import ModelComparison from './pages/ModelComparison';
+import FederatedLearning from './pages/FederatedLearning';
+import DepartmentAnalysis from './pages/DepartmentAnalysis';
+import TrainingAnalytics from './pages/TrainingAnalytics';
+import About from './pages/About';
+import Settings from './pages/Settings';
+import { EmptyState } from './components/common/States';
 
-import Sidebar from "./components/Sidebar";
-import "./App.css";
-
-function App() {
+export default function App() {
   return (
-    <div className="app-layout">
-      <Sidebar />
-
-      <main className="main-content">
-        <header className="top-header">
-          <div>
-            <p className="breadcrumb">Workspace / Dashboard</p>
-            <h1>Dashboard Overview</h1>
-          </div>
-
-          <div className="header-right">
-            <span className="system-label">
-              Federated Learning System
-            </span>
-
-            <div className="user-avatar">FA</div>
-          </div>
-        </header>
-
-        <section className="dashboard-content">
-          <h2>Welcome to Federated Academic Analyzer</h2>
-          <p>
-            Monitor academic prediction models, federated training
-            and department performance from one place.
-          </p>
-        </section>
-      </main>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="datasets" element={<Datasets />} />
+        <Route path="comparison" element={<ModelComparison />} />
+        <Route path="federated" element={<FederatedLearning />} />
+        <Route path="departments" element={<DepartmentAnalysis />} />
+        <Route path="training" element={<TrainingAnalytics />} />
+        <Route path="about" element={<About />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="*" element={<EmptyState title="Page not found" message="Use the sidebar or the keycaps above to open one of the available pages." />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body, #root { min-height: 100%; }
+body {
+  @apply bg-slate-50 font-sans text-slate-800 antialiased;
+  background-image:
+    radial-gradient(1000px 420px at 85% -10%, rgba(99,102,241,.08), transparent 60%),
+    radial-gradient(800px 380px at -10% 20%, rgba(14,165,233,.06), transparent 60%);
+  background-attachment: fixed;
+}
+:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; border-radius: 6px; }
+::selection { background: #c7d2fe; }
+
+/* thin scrollbars */
+* { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+
+/* ---------- Spotlight card (cursor-following glow) ---------- */
+.spot-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: .85rem;
+  box-shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px -12px rgba(15,23,42,.12);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.spot-card::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  opacity: 0; transition: opacity .3s ease;
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(99,102,241,.10), transparent 60%);
+}
+.spot-card:hover::before { opacity: 1; }
+.spot-lift:hover { transform: translateY(-3px); border-color: #c7d2fe; box-shadow: 0 2px 4px rgba(15,23,42,.06), 0 18px 36px -14px rgba(79,70,229,.30); }
+
+/* ---------- Keycaps (top bar) ---------- */
+.keycap {
+  --cap-edge: #94a3b8;
+  display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+  padding: .42rem .75rem; border-radius: .6rem;
+  font-size: .8rem; font-weight: 700; color: #334155; cursor: pointer;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 3px 0 var(--cap-edge), 0 8px 14px -6px rgba(15,23,42,.28), inset 0 1px 0 #fff;
+  transform: translateY(0);
+  transition: transform .09s ease, box-shadow .09s ease, background .2s ease, color .2s ease;
+  user-select: none;
+}
+.keycap:hover { transform: translateY(-1px); box-shadow: 0 4px 0 var(--cap-edge), 0 12px 18px -8px rgba(79,70,229,.35), inset 0 1px 0 #fff; color: #4338ca; }
+.keycap:active, .keycap[data-pressed='true'] { transform: translateY(3px); box-shadow: 0 0 0 var(--cap-edge), 0 2px 4px -2px rgba(15,23,42,.3), inset 0 1px 0 #fff; }
+.keycap-active, .keycap-active:hover {
+  --cap-edge: #3730a3; color: #fff; border-color: #4338ca;
+  background: linear-gradient(180deg, #818cf8 0%, #4f46e5 100%);
+  box-shadow: 0 3px 0 var(--cap-edge), 0 10px 16px -6px rgba(79,70,229,.55), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.keycap-hint {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: .68rem; font-weight: 500;
+  padding: .05rem .32rem; border-radius: .3rem; background: rgba(15,23,42,.08); color: inherit; opacity: .8;
+}
+.keycap-active .keycap-hint { background: rgba(255,255,255,.22); }
+
+/* ---------- Misc ---------- */
+.text-gradient { background: linear-gradient(90deg, #a5b4fc, #c4b5fd, #7dd3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.table-row-hover { transition: background-color .15s ease; }
+.recharts-wrapper { outline: none; }
+.recharts-tooltip-cursor { transition: opacity .2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+}
