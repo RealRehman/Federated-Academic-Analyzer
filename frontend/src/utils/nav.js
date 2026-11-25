@@ -1,6 +1,18 @@
-import { LayoutDashboard, Database, BarChart3, Network, Building2, LineChart, Info, Settings } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Database,
+  BarChart3,
+  Network,
+  Building2,
+  LineChart,
+  Info,
+  Settings,
+  GraduationCap
+} from 'lucide-react';
+
 
 export const NAV = [
+  { to: '/prediction', label: 'Student Prediction', short: 'Prediction', icon: GraduationCap, key: '9' },
   { to: '/', label: 'Dashboard', short: 'Dashboard', icon: LayoutDashboard, key: '1' },
   { to: '/datasets', label: 'Datasets', short: 'Datasets', icon: Database, key: '2' },
   { to: '/comparison', label: 'Model Comparison', short: 'Compare', icon: BarChart3, key: '3' },

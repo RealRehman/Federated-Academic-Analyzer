@@ -8,6 +8,7 @@ import DepartmentAnalysis from './pages/DepartmentAnalysis';
 import TrainingAnalytics from './pages/TrainingAnalytics';
 import About from './pages/About';
 import Settings from './pages/Settings';
+import StudentPrediction from './pages/StudentPrediction';
 import { EmptyState } from './components/common/States';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Dashboard />} />
+        <Route path="prediction" element={<StudentPrediction />} />
         <Route path="datasets" element={<Datasets />} />
         <Route path="comparison" element={<ModelComparison />} />
         <Route path="federated" element={<FederatedLearning />} />

@@ -31,4 +31,27 @@ export const api = {
   listExperiments: () => get('/api/experiments/'),
   getResults: (dataset) => get(`/api/experiments/${dataset}`),
   getHistory: (dataset) => get(`/api/experiments/${dataset}/history`),
+
+  getPredictionSchema: (dataset) =>
+    get(`/api/predictions/${dataset}/schema`),
+
+  getPredictionSample: async (dataset) => {
+    try {
+      const res = await client.get(
+        `/api/predictions/${dataset}/sample`
+      );
+      return res.data;
+    } catch (err) {
+      throw new Error(describeError(err));
+    }
+  },
+
+  predictStudent: async (payload) => {
+    try {
+      const res = await client.post('/api/predictions/', payload);
+      return res.data;
+    } catch (err) {
+      throw new Error(describeError(err));
+    }
+  },
 };
