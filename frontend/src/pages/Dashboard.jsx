@@ -106,7 +106,7 @@ export default function Dashboard() {
           </div>
           <dl className="space-y-2.5 text-sm">
             {[
-              ['Participating departments', '3 (simulated)'],
+              ['Participating departments', '5 (simulated)'],
               ['Algorithms', 'FedAvg, FedProx'],
               ['Rounds completed', `${FL_CONFIG.rounds} of ${FL_CONFIG.rounds}`],
               ['Status', null],

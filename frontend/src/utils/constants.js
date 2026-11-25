@@ -55,7 +55,7 @@ export const METRICS = [
 ];
 
 export const FL_CONFIG = {
-  clients: 3,
+  clients: 5,
   rounds: 10,
   localEpochs: 20,
   learningRate: 0.05,

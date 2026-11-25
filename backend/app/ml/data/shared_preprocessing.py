@@ -17,7 +17,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[4]
 DEPARTMENTS = [
     "department_01",
     "department_02",
-    "department_03"
+    "department_03",
+    "department_04",
+    "department_05"
 ]
 
 

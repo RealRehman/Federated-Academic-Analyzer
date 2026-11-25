@@ -1,6 +1,7 @@
 from app.api.experiment_routes import router as experiment_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.prediction_routes import router as prediction_router
 
 app = FastAPI(
     title="Federated Academic Analyzer",
@@ -18,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(experiment_router)
+app.include_router(prediction_router)
 
 
 @app.get("/")

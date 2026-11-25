@@ -14,13 +14,13 @@ from app.ml.data.pass_fail_preprocessing import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
 
-N_CLIENTS = 3
+N_CLIENTS = 5
 DIRICHLET_ALPHA = 0.5
 MIN_RECORDS = 20
 RANDOM_SEED = 42
 
 
-def dirichlet_partition(X, y, n_clients=3, alpha=0.5,
+def dirichlet_partition(X, y, n_clients=5, alpha=0.5,
                         min_size=20, seed=42):
     """
     Divide records among clients using Dirichlet partitioning.

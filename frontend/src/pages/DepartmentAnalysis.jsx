@@ -14,7 +14,7 @@ import { Async, EmptyState, Unavailable } from '../components/common/States';
 import ChartFrame from '../components/charts/ChartFrame';
 import ModernBar from '../components/charts/ModernBar';
 
-const IMGS = [dept1, dept2, dept3];
+const IMGS = [dept1, dept2, dept3, dept1, dept2];
 const PALETTE = ['#6366f1', '#f97316', '#0ea5e9', '#10b981'];
 
 function ClassMix({ dist }) {

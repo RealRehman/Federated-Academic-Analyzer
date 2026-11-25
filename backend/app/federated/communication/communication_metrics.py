@@ -6,7 +6,7 @@ def calculate_payload_size(payload):
     """
     Calculate the serialized size of a model payload in bytes.
     """
-    return len(pickle.dumps(payload))
+    return len(pickle.dumps(payload, protocol=pickle.HIGHEST_PROTOCOL))
 
 
 def calculate_round_communication(global_parameters, client_updates):
