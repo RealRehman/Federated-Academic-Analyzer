@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, BarChart3, Building2, Cpu, Database, LineChart, Network, Repeat, ShieldAlert, Server, TrendingUp } from 'lucide-react';
-import hero from '../assets/hero.svg';
+import serversss from '../assets/server.jpg';
 import dept1 from '../assets/dept1.svg';
 import dept2 from '../assets/dept2.svg';
 import dept3 from '../assets/dept3.svg';
@@ -51,7 +51,7 @@ export default function Dashboard() {
   return (
     <>
       <section className="relative overflow-hidden rounded-2xl bg-navy-900 text-white shadow-lift">
-        <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={serversss} alt="" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/85 to-transparent" />
         <div className="relative max-w-2xl space-y-4 p-6 sm:p-10">
           <div className="flex flex-wrap gap-2">

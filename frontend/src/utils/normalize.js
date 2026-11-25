@@ -187,15 +187,35 @@ function toRecords(node) {
 }
 
 /** Communication value in KB. Keys containing "byte" (and not "kb") are converted from bytes. */
+
+/** Communication value in KB, including nested communication objects. */
 function commKb(r, which) {
-  const rx = { down: /down/i, up: /(^|[^a-z])up(link|load)/i, total: /total|comm|cost/i }[which];
-  for (const [k, v] of Object.entries(r)) {
+  const rx = {
+    down: /down/i,
+    up: /(^|[^a-z])up(link|load)/i,
+    total: /total|comm|cost/i
+  }[which];
+
+  const source = {
+    ...r,
+    ...(isObj(r.communication) ? r.communication : {})
+  };
+
+  for (const [k, v] of Object.entries(source)) {
     if (typeof v !== 'number' || !rx.test(k)) continue;
-    if (which === 'total' && /down|up(link|load)/i.test(k)) continue;
-    return /byte/i.test(k) && !/kb/i.test(k) ? v / 1024 : v;
+
+    if (which === 'total' && /down|up(link|load)/i.test(k)) {
+      continue;
+    }
+
+    return /byte/i.test(k) && !/kb/i.test(k)
+      ? v / 1024
+      : v;
   }
+
   return null;
 }
+
 
 function toRows(records) {
   return records
